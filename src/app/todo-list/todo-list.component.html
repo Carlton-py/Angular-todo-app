@@ -1,0 +1,106 @@
+<!--todo-list.component.html-->
+<!--<<div>
+    <input type="text" #todoText placeholder = "Add Todo">
+    <button (click= "addTask(todoText.value)">Add</button>)
+</div>
+
+<ul>
+    <li *ngFor = "let todoItem of todoList">
+        <input type = "checkbox"
+        [(checked)] = "todoItem.completed" (change) = "toggleCompleted(todoItem.id)"/>
+        <span[class.completed] = "todoItem.completed">{{todoItem.text}}</span>
+        <button (click) = "deleteTask(todoItem.id)">Delete</button>
+
+    </li>
+</ul>>
+-->
+<!-- <div class="speech-input-container">
+  <button 
+    [class.recording]="isRecording" 
+    (click)="toggleRecording()"
+    aria-label="Record voice input for new to-do">
+    <span class="mic-icon">🎤</span>
+    {{ isRecording ? 'Listening...' : 'Speak' }}
+  </button>
+  
+  <div *ngIf="transcribedText" class="transcript">
+    <p>{{ transcribedText }}</p>
+    <button 
+      class="add-button" 
+      (click)="addTranscribedTodo()">
+      Add to list
+    </button>
+  </div>
+</div>
+
+<!--Old stuff from here downwards-->
+<!--
+<div class="todo-container">
+    <div class="todo-input">
+      <input 
+        #todoText
+        type="text"
+        [(ngModel)]="newTask" 
+        placeholder="Add a new task..." 
+        (keyup.enter)="addTask(newTask)"
+      />
+      <button (click)="addTask(newTask)">Add</button>
+    </div>
+    
+    <ul class="todo-list">
+      <li *ngFor="let item of todoList" [class.completed]="item.completed">
+        <span (click)="toggleCompleted(item.id)">{{item.task}}</span>
+        <button class="delete-btn" (click)="deleteTask(item.id)">Delete</button>
+      </li>
+    </ul>
+    
+    <div class="todo-stats" *ngIf="todoList.length > 0">
+      <p>{{todoList.length}} total items, {{getCompletedCount()}} completed</p>
+    </div>
+  </div> 
+  -->
+  <div class="speech-input-container">
+    <button 
+      [class.recording]="isRecording" 
+      (click)="toggleRecording()"
+      aria-label="Record voice input for new to-do">
+      <span class="mic-icon">🎤</span>
+      {{ isRecording ? 'Listening... Click to stop' : 'Speak' }}
+    </button>
+    
+    <div *ngIf="transcribedText" class="transcript">
+      <p>"{{ transcribedText }}"</p>
+      <button 
+        class="add-button" 
+        (click)="addTranscribedTodo()">
+        Add to list
+      </button>
+    </div>
+  </div>
+  
+  <!--Old stuff from here downwards-->
+  <div class="todo-container">
+      <div class="todo-input">
+        <input 
+          #todoText
+          type="text"
+          [(ngModel)]="newTask" 
+          placeholder="Add a new task..." 
+          (keyup.enter)="addTask(newTask)"
+        />
+        <button (click)="addTask(newTask)">Add</button>
+      </div>
+      
+      <ul class="todo-list">
+        <li *ngFor="let item of todoList" [class.completed]="item.completed">
+          <span (click)="toggleCompleted(item.id)">{{item.task}}</span>
+          <button class="delete-btn" (click)="deleteTask(item.id)">Delete</button>
+        </li>
+      </ul>
+      
+      <div class="todo-stats" *ngIf="todoList.length > 0">
+        <p>{{todoList.length}} total items, {{getCompletedCount()}} completed</p>
+      </div>
+    </div>
+  
+  
